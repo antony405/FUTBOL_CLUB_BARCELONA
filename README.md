@@ -9,11 +9,10 @@ Sitio web dedicado a la historia completa del Fútbol Club Barcelona, desde su f
 - 📈 Gráficos interactivos y visualizaciones
 - 📱 Diseño completamente responsivo
 
-## 🌐 Ver en Vivo
-[https://tu-usuario.github.io/fc-barcelona-historia](https://tu-usuario.github.io/fc-barcelona-historia)
+## 🌐 Ver en Vivo: [https://github.com/antony405/FUTBOL_CLUB_BARCELONA]
 
 ## 🛠️ Tecnologías Utilizadas
-- HTML5
+- HTML5 
 - CSS3 (Glassmorphism, Gradientes)
 - JavaScript (Vanilla)
 - Font Awesome Icons
