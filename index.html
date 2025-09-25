@@ -190,196 +190,6 @@
             margin-top: 2rem;
         }
         
-        /* Background Images for Sections */
-        .section-bg-messi {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .section-bg-messi::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: -100px;
-            width: 400px;
-            height: 400px;
-            background-image: url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.08;
-            filter: blur(1px);
-            z-index: -1;
-            transform: rotate(-15deg);
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .section-bg-ronaldinho {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .section-bg-ronaldinho::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            left: -100px;
-            width: 350px;
-            height: 350px;
-            background-image: url('https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.08;
-            filter: blur(1px);
-            z-index: -1;
-            transform: rotate(10deg);
-            animation: float 8s ease-in-out infinite reverse;
-        }
-        
-        .section-bg-xavi {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .section-bg-xavi::before {
-            content: '';
-            position: absolute;
-            bottom: -100px;
-            right: -80px;
-            width: 300px;
-            height: 300px;
-            background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.08;
-            filter: blur(1px);
-            z-index: -1;
-            animation: float 7s ease-in-out infinite;
-        }
-        
-        .section-bg-puyol {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .section-bg-puyol::before {
-            content: '';
-            position: absolute;
-            top: -80px;
-            left: -50px;
-            width: 320px;
-            height: 320px;
-            background-image: url('https://images.unsplash.com/photo-1526232761682-d26e03ac148e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.08;
-            filter: blur(1px);
-            z-index: -1;
-            transform: rotate(-10deg);
-            animation: float 9s ease-in-out infinite reverse;
-        }
-        
-        .section-bg-cruyff {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .section-bg-cruyff::before {
-            content: '';
-            position: absolute;
-            bottom: -120px;
-            left: -100px;
-            width: 380px;
-            height: 380px;
-            background-image: url('https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.08;
-            filter: blur(1px);
-            z-index: -1;
-            transform: rotate(8deg);
-            animation: float 10s ease-in-out infinite;
-        }
-        
-        .section-bg-guardiola {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .section-bg-guardiola::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: -120px;
-            width: 360px;
-            height: 360px;
-            background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.06;
-            filter: blur(1px);
-            z-index: -1;
-            transform: translateY(-50%) rotate(-12deg);
-            animation: float 11s ease-in-out infinite reverse;
-        }
-        
-        .section-bg-camp-nou {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .section-bg-camp-nou::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 500px;
-            height: 300px;
-            background-image: url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.05;
-            filter: blur(2px);
-            z-index: -1;
-            transform: translateX(-50%);
-            border-radius: 20px;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(var(--rotate, 0deg)); }
-            50% { transform: translateY(-20px) rotate(var(--rotate, 0deg)); }
-        }
-        
-        /* Leyenda icons para cada sección */
-        .legend-icon {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, var(--barca-blue), var(--barca-red));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            opacity: 0.8;
-            z-index: 2;
-            animation: pulse 3s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.1); opacity: 1; }
-        }
-        
         .match-card {
             background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
             backdrop-filter: blur(15px);
@@ -799,12 +609,8 @@
             </section>
 
             <!-- Recent Matches Section -->
-            <section class="section section-bg-messi" id="partidos">
-                <div class="legend-icon">👑</div>
+            <section class="section" id="partidos">
                 <h2 class="section-title fade-in">⚽ Últimos Partidos 2024-25</h2>
-                <div style="text-align: center; margin-bottom: 2rem; color: var(--gray-text); font-style: italic;">
-                    "La era de los nuevos talentos continúa el legado de la grandeza"
-                </div>
                 <div class="matches-grid">
                     
                     <div class="match-card fade-in">
@@ -1026,12 +832,8 @@
             </section>
 
             <!-- Historical Timeline Section -->
-            <section class="section section-bg-cruyff" id="historia">
-                <div class="legend-icon">🏛️</div>
+            <section class="section" id="historia">
                 <h2 class="section-title fade-in">🏆 Momentos Históricos</h2>
-                <div style="text-align: center; margin-bottom: 2rem; color: var(--gray-text); font-style: italic;">
-                    "El fútbol total y la filosofía que cambió el mundo" - Johan Cruyff
-                </div>
                 <div class="timeline">
                     <div class="timeline-item fade-in">
                         <div class="timeline-year">1899</div>
@@ -1076,12 +878,8 @@
             </section>
 
             <!-- Current Players Section -->
-            <section class="section section-bg-ronaldinho" id="jugadores">
-                <div class="legend-icon">✨</div>
+            <section class="section" id="jugadores">
                 <h2 class="section-title fade-in">⭐ Plantilla Actual 2024-25</h2>
-                <div style="text-align: center; margin-bottom: 2rem; color: var(--gray-text); font-style: italic;">
-                    "La magia del fútbol vive en cada generación" - Ronaldinho
-                </div>
                 <div class="players-grid">
                     <div class="player-card fade-in">
                         <div class="player-image">🥅</div>
@@ -1142,12 +940,8 @@
             </section>
 
             <!-- Statistics Section -->
-            <section class="section section-bg-xavi" id="estadisticas">
-                <div class="legend-icon">🧠</div>
+            <section class="section" id="estadisticas">
                 <h2 class="section-title fade-in">📊 Estadísticas Históricas</h2>
-                <div style="text-align: center; margin-bottom: 2rem; color: var(--gray-text); font-style: italic;">
-                    "Los números nunca mienten, la historia habla por sí sola" - Xavi Hernández
-                </div>
                 
                 <div class="feature-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
                     <div class="feature-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 15px; border: 1px solid rgba(244, 196, 48, 0.2);">
@@ -1222,12 +1016,8 @@
                 </div>
                 
                 <!-- El Clasico Record -->
-                <div class="section section-bg-puyol" style="background: rgba(165, 0, 68, 0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; border: 2px solid var(--barca-red); margin-top: 3rem; position: relative; overflow: hidden;">
-                    <div class="legend-icon" style="background: var(--barca-red);">🛡️</div>
-                    <h3 style="text-align: center; color: var(--barca-gold); margin-bottom: 1rem; font-size: 1.8rem;">⚔️ El Clásico - FCB vs Real Madrid</h3>
-                    <div style="text-align: center; margin-bottom: 2rem; color: var(--gray-text); font-style: italic;">
-                        "Con el corazón, con el alma, siempre dándolo todo" - Carles Puyol
-                    </div>
+                <div class="section" style="background: rgba(165, 0, 68, 0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; border: 2px solid var(--barca-red); margin-top: 3rem;">
+                    <h3 style="text-align: center; color: var(--barca-gold); margin-bottom: 2rem; font-size: 1.8rem;">⚔️ El Clásico - FCB vs Real Madrid</h3>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
                         <div>
                             <div style="font-size: 3rem; color: var(--barca-gold); font-weight: bold;">254</div>
@@ -1253,12 +1043,8 @@
             </section>
 
             <!-- Multimedia Section -->
-            <section class="section section-bg-guardiola" id="multimedia">
-                <div class="legend-icon">🎬</div>
+            <section class="section" id="multimedia">
                 <h2 class="section-title fade-in">📸 Galería Multimedia</h2>
-                <div style="text-align: center; margin-bottom: 2rem; color: var(--gray-text); font-style: italic;">
-                    "El fútbol es arte, es pasión, es vida" - Pep Guardiola
-                </div>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
                     
                     <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 1.5rem; border: 1px solid rgba(244, 196, 48, 0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='var(--barca-gold)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(244, 196, 48, 0.2)'">
@@ -1292,12 +1078,8 @@
             </section>
 
             <!-- Download Section -->
-            <section class="section section-bg-camp-nou">
-                <div class="legend-icon">🏟️</div>
+            <section class="section">
                 <h2 class="section-title fade-in">📥 Descargas Disponibles</h2>
-                <div style="text-align: center; margin-bottom: 2rem; color: var(--gray-text); font-style: italic;">
-                    "Més que un club - Más que un estadio, un templo del fútbol"
-                </div>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin: 2rem 0;">
                     
                     <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 2rem; border: 1px solid rgba(244, 196, 48, 0.2); text-align: center;">
