@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC Barcelona - Historia Completa 1899-2025</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --barca-blue: #004d9f;
+            --barca-red: #a50044;
+            --barca-gold: #f4c430;
+            --dark-bg: #0a0a0a;
+            --light-text: #ffffff;
+            --gray-text: #cccccc;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1a1a2e 50%, var(--barca-blue) 100%);
+            color: var(--light-text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        /* Header Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 77, 159, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--barca-blue), var(--barca-red));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-menu a {
+            color: var(--light-text);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu a:hover {
+            background: var(--barca-red);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--barca-blue), var(--barca-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px rgba(244, 196, 48, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(244, 196, 48, 0.8)); }
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: var(--gray-text);
+        }
+        
+        .stats-quick {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(244, 196, 48, 0.3);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--barca-gold);
+            display: block;
+        }
+        
+        .stat-label {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 4rem 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            background: linear-gradient(45deg, var(--barca-blue), var(--barca-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Recent Matches */
+        .matches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        /* Background Images for Sections */
+        .section-bg-messi {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-bg-messi::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background-image: url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.08;
+            filter: blur(1px);
+            z-index: -1;
+            transform: rotate(-15deg);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .section-bg-ronaldinho {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-bg-ronaldinho::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -100px;
+            width: 350px;
+            height: 350px;
+            background-image: url('https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.08;
+            filter: blur(1px);
+            z-index: -1;
+            transform: rotate(10deg);
+            animation: float 8s ease-in-out infinite reverse;
+        }
+        
+        .section-bg-xavi {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-bg-xavi::before {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            right: -80px;
+            width: 300px;
+            height: 300px;
+            background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.08;
+            filter: blur(1px);
+            z-index: -1;
+            animation: float 7s ease-in-out infinite;
+        }
+        
+        .section-bg-puyol {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-bg-puyol::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            left: -50px;
+            width: 320px;
+            height: 320px;
+            background-image: url('https://images.unsplash.com/photo-1526232761682-d26e03ac148e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.08;
+            filter: blur(1px);
+            z-index: -1;
+            transform: rotate(-10deg);
+            animation: float 9s ease-in-out infinite reverse;
+        }
+        
+        .section-bg-cruyff {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-bg-cruyff::before {
+            content: '';
+            position: absolute;
+            bottom: -120px;
+            left: -100px;
+            width: 380px;
+            height: 380px;
+            background-image: url('https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.08;
+            filter: blur(1px);
+            z-index: -1;
+            transform: rotate(8deg);
+            animation: float 10s ease-in-out infinite;
+        }
+        
+        .section-bg-guardiola {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-bg-guardiola::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -120px;
+            width: 360px;
+            height: 360px;
+            background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.06;
+            filter: blur(1px);
+            z-index: -1;
+            transform: translateY(-50%) rotate(-12deg);
+            animation: float 11s ease-in-out infinite reverse;
+        }
+        
+        .section-bg-camp-nou {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-bg-camp-nou::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 500px;
+            height: 300px;
+            background-image: url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.05;
+            filter: blur(2px);
+            z-index: -1;
+            transform: translateX(-50%);
+            border-radius: 20px;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(var(--rotate, 0deg)); }
+            50% { transform: translateY(-20px) rotate(var(--rotate, 0deg)); }
+        }
+        
+        /* Leyenda icons para cada sección */
+        .legend-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--barca-blue), var(--barca-red));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            opacity: 0.8;
+            z-index: 2;
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+        
+        .match-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(244, 196, 48, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .match-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--barca-gold);
+            box-shadow: 0 20px 40px rgba(244, 196, 48, 0.2);
+        }
+        
+        .match-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--barca-blue), var(--barca-red));
+        }
+        
+        .match-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .match-date {
+            color: var(--barca-gold);
+            font-weight: bold;
+        }
+        
+        .competition {
+            background: var(--barca-red);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .match-teams {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1.5rem 0;
+        }
+        
+        .team {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .team-logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--barca-blue), var(--barca-red));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .vs {
+            font-size: 1.5rem;
+            color: var(--gray-text);
+        }
+        
+        .score {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--barca-gold);
+            text-align: center;
+            margin: 1rem 0;
+        }
+        
+        .match-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--barca-gold);
+        }
+        
+        .stat-name {
+            color: var(--gray-text);
+            font-size: 0.8rem;
+        }
+        
+        /* Historical Timeline */
+        .timeline {
+            position: relative;
+            margin: 3rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--barca-blue), var(--barca-red));
+        }
+        
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 3rem 0;
+            position: relative;
+        }
+        
+        .timeline-content {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            width: 45%;
+            border: 1px solid rgba(244, 196, 48, 0.2);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+        }
+        
+        .timeline-year {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--barca-gold);
+            color: var(--dark-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+        
+        /* Player Gallery */
+        .players-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .player-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(244, 196, 48, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .player-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--barca-gold);
+        }
+        
+        .player-image {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, var(--barca-blue), var(--barca-red));
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .player-name {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .player-position {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+        }
+        
+        /* Search and Filters */
+        .search-section {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(15px);
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            border: 1px solid rgba(244, 196, 48, 0.2);
+        }
+        
+        .search-bar {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255,255,255,0.9);
+            color: var(--dark-bg);
+            font-size: 1rem;
+        }
+        
+        .search-btn {
+            background: var(--barca-red);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .search-btn:hover {
+            background: var(--barca-blue);
+            transform: translateY(-2px);
+        }
+        
+        .filters {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid rgba(244, 196, 48, 0.3);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--barca-gold);
+            color: var(--dark-bg);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark-bg);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 2px solid var(--barca-gold);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .social-link {
+            color: var(--gray-text);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            color: var(--barca-gold);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 60px;
+            }
+            
+            .timeline-year {
+                left: 20px;
+            }
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(244, 196, 48, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--barca-gold);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-img">FCB</div>
+                <span>FC Barcelona</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#historia">Historia</a>
+                <a href="#partidos">Partidos</a>
+                <a href="#jugadores">Jugadores</a>
+                <a href="#estadisticas">Estadísticas</a>
+                <a href="#multimedia">Multimedia</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>FC Barcelona</h1>
+            <p>Más que un club - Historia completa desde 1899</p>
+            <div class="stats-quick">
+                <div class="stat-item">
+                    <span class="stat-number">126</span>
+                    <span class="stat-label">Años de Historia</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">95</span>
+                    <span class="stat-label">Títulos Oficiales</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4,200+</span>
+                    <span class="stat-label">Partidos Jugados</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Camp Nou</span>
+                    <span class="stat-label">99,354 Capacidad</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Search Section -->
+            <section class="search-section" id="buscar">
+                <h2 style="text-align: center; margin-bottom: 1.5rem;">🔍 Buscar en la Historia</h2>
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Buscar partidos, jugadores, fechas, rivales...">
+                    <button class="search-btn"><i class="fas fa-search"></i> Buscar</button>
+                </div>
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="todos">Todos</button>
+                    <button class="filter-btn" data-filter="2024-25">Temporada 2024-25</button>
+                    <button class="filter-btn" data-filter="laliga">La Liga</button>
+                    <button class="filter-btn" data-filter="champions">Champions League</button>
+                    <button class="filter-btn" data-filter="copa">Copa del Rey</button>
+                    <button class="filter-btn" data-filter="clasicos">El Clásico</button>
+                </div>
+            </section>
+
+            <!-- Recent Matches Section -->
+            <section class="section section-bg-messi" id="partidos">
+                <div class="legend-icon">👑</div>
+                <h2 class="section-title fade-in">⚽ Últimos Partidos 2024-25</h2>
+                <div style="text-align: center; margin-bottom: 2rem; color: var(--gray-text); font-style: italic;">
+                    "La era de los nuevos talentos continúa el legado de la grandeza"
+                </div>
+                <div class="matches-grid">
+                    
+                    <div class="match-card fade-in">
+                        <div class="match-header">
+                            <span class="match-date">2 Mar 2025</span>
+                            <span class="competition">La Liga</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="team">
+                                <div class="team-logo">FCB</div>
+                                <span>FC Barcelona</span>
+                            </div>
+                            <span class="vs">VS</span>
+                            <div class="team">
+                                <span>Real Sociedad</span>
+                                <div class="team-logo">RS</div>
+                            </div>
+                        </div>
+                        <div class="score">3 - 1</div>
+                        <div class="match-stats">
+                            <div class="stat">
+                                <div class="stat-value">68%</div>
+                                <div class="stat-name">Posesión</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">15</div>
+                                <div class="stat-name">Tiros</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">7</div>
+                                <div class="stat-name">Córners</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1rem; color: var(--gray-text); font-size: 0.9rem;">
+                            ⚽ Goleadores: Lewandowski (23'), Raphinha (45'), Gavi (78')
+                        </div>
+                    </div>
+
+                    <div class="match-card fade-in">
+                        <div class="match-header">
+                            <span class="match-date">23 Feb 2025</span>
+                            <span class="competition">Champions League</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="team">
+                                <div class="team-logo">FCB</div>
+                                <span>FC Barcelona</span>
+                            </div>
+                            <span class="vs">VS</span>
+                            <div class="team">
+                                <span>Bayern München</span>
+                                <div class="team-logo">BAY</div>
+                            </div>
+                        </div>
+                        <div class="score">2 - 0</div>
+                        <div class="match-stats">
+                            <div class="stat">
+                                <div class="stat-value">55%</div>
+                                <div class="stat-name">Posesión</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">12</div>
+                                <div class="stat-name">Tiros</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">4</div>
+                                <div class="stat-name">Córners</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1rem; color: var(--gray-text); font-size: 0.9rem;">
+                            ⚽ Goleadores: Yamal (34'), Pedri (67')
+                        </div>
+                    </div>
+
+                    <div class="match-card fade-in">
+                        <div class="match-header">
+                            <span class="match-date">15 Feb 2025</span>
+                            <span class="competition">La Liga</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="team">
+                                <div class="team-logo">RMA</div>
+                                <span>Real Madrid</span>
+                            </div>
+                            <span class="vs">VS</span>
+                            <div class="team">
+                                <span>FC Barcelona</span>
+                                <div class="team-logo">FCB</div>
+                            </div>
+                        </div>
+                        <div class="score">1 - 4</div>
+                        <div class="match-stats">
+                            <div class="stat">
+                                <div class="stat-value">62%</div>
+                                <div class="stat-name">Posesión</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">18</div>
+                                <div class="stat-name">Tiros</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">9</div>
+                                <div class="stat-name">Córners</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1rem; color: var(--gray-text); font-size: 0.9rem;">
+                            ⚽ Goleadores: Lewandowski (15', 89'), Raphinha (56'), Yamal (73')
+                        </div>
+                    </div>
+
+                    <div class="match-card fade-in">
+                        <div class="match-header">
+                            <span class="match-date">8 Feb 2025</span>
+                            <span class="competition">La Liga</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="team">
+                                <div class="team-logo">FCB</div>
+                                <span>FC Barcelona</span>
+                            </div>
+                            <span class="vs">VS</span>
+                            <div class="team">
+                                <span>Sevilla FC</span>
+                                <div class="team-logo">SEV</div>
+                            </div>
+                        </div>
+                        <div class="score">5 - 1</div>
+                        <div class="match-stats">
+                            <div class="stat">
+                                <div class="stat-value">72%</div>
+                                <div class="stat-name">Posesión</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">22</div>
+                                <div class="stat-name">Tiros</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">11</div>
+                                <div class="stat-name">Córners</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1rem; color: var(--gray-text); font-size: 0.9rem;">
+                            ⚽ Goleadores: Lewandowski (12', 45'), Yamal (28'), Gavi (67'), Fermín (82')
+                        </div>
+                    </div>
+
+                    <div class="match-card fade-in">
+                        <div class="match-header">
+                            <span class="match-date">1 Feb 2025</span>
+                            <span class="competition">Copa del Rey</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="team">
+                                <div class="team-logo">FCB</div>
+                                <span>FC Barcelona</span>
+                            </div>
+                            <span class="vs">VS</span>
+                            <div class="team">
+                                <span>Athletic Club</span>
+                                <div class="team-logo">ATH</div>
+                            </div>
+                        </div>
+                        <div class="score">3 - 2</div>
+                        <div class="match-stats">
+                            <div class="stat">
+                                <div class="stat-value">58%</div>
+                                <div class="stat-name">Posesión</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">14</div>
+                                <div class="stat-name">Tiros</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">6</div>
+                                <div class="stat-name">Córners</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1rem; color: var(--gray-text); font-size: 0.9rem;">
+                            ⚽ Goleadores: Raphinha (19'), Pedri (54'), Lewandowski (90'+3)
+                        </div>
+                    </div>
+
+                    <div class="match-card fade-in">
+                        <div class="match-header">
+                            <span class="match-date">25 Ene 2025</span>
+                            <span class="competition">La Liga</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="team">
+                                <div class="team-logo">VAL</div>
+                                <span>Valencia CF</span>
+                            </div>
+                            <span class="vs">VS</span>
+                            <div class="team">
+                                <span>FC Barcelona</span>
+                                <div class="team-logo">FCB</div>
+                            </div>
+                        </div>
+                        <div class="score">0 - 2</div>
+                        <div class="match-stats">
+                            <div class="stat">
+                                <div class="stat-value">65%</div>
+                                <div class="stat-name">Posesión</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">16</div>
+                                <div class="stat-name">Tiros</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">8</div>
+                                <div class="stat-name">Córners</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1rem; color: var(--gray-text); font-size: 0.9rem;">
+                            ⚽ Goleadores: Ferran Torres (31'), Yamal (68')
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Historical Timeline Section -->
+            <section class="section section-bg-cruyff" id="historia">
+                <div class="legend-icon">🏛️</div>
+                <h2 class="section-title fade-in">🏆 Momentos Históricos</h2>
+                <div style="text-align: center; margin-bottom: 2rem; color: var(--gray-text); font-style: italic;">
+                    "El fútbol total y la filosofía que cambió el mundo" - Johan Cruyff
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-year">1899</div>
+                        <div class="timeline-content">
+                            <h3>Fundación del Club</h3>
+                            <p>Hans Gamper funda el Football Club Barcelona el 29 de noviembre. Primer partido: FCB 1-0 vs Club Català.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-year">1957</div>
+                        <div class="timeline-content">
+                            <h3>Inauguración del Camp Nou</h3>
+                            <p>Se inaugura el nuevo estadio con capacidad para 93,053 espectadores. Primer partido: FCB 4-2 vs Legia Varsovia.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-year">1992</div>
+                        <div class="timeline-content">
+                            <h3>Primera Champions League</h3>
+                            <p>Koeman anota el gol de la victoria en Wembley. FCB 1-0 Sampdoria. Primera Copa de Europa para el club.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-year">2009</div>
+                        <div class="timeline-content">
+                            <h3>El Triplete Histórico</h3>
+                            <p>Bajo Pep Guardiola: Liga, Copa del Rey y Champions League. El Barcelona de Messi, Xavi e Iniesta.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-year">2015</div>
+                        <div class="timeline-content">
+                            <h3>Segundo Triplete</h3>
+                            <p>MSN (Messi, Suárez, Neymar) lideran el segundo triplete de la historia del club con Luis Enrique.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Current Players Section -->
+            <section class="section section-bg-ronaldinho" id="jugadores">
+                <div class="legend-icon">✨</div>
+                <h2 class="section-title fade-in">⭐ Plantilla Actual 2024-25</h2>
+                <div style="text-align: center; margin-bottom: 2rem; color: var(--gray-text); font-style: italic;">
+                    "La magia del fútbol vive en cada generación" - Ronaldinho
+                </div>
+                <div class="players-grid">
+                    <div class="player-card fade-in">
+                        <div class="player-image">🥅</div>
+                        <div class="player-name">Marc-André ter Stegen</div>
+                        <div class="player-position">Portero</div>
+                        <div style="margin-top: 0.5rem; color: var(--barca-gold); font-size: 0.8rem;">187 partidos jugados</div>
+                    </div>
+                    
+                    <div class="player-card fade-in">
+                        <div class="player-image">🛡️</div>
+                        <div class="player-name">Ronald Araújo</div>
+                        <div class="player-position">Defensor Central</div>
+                        <div style="margin-top: 0.5rem; color: var(--barca-gold); font-size: 0.8rem;">95 partidos jugados</div>
+                    </div>
+                    
+                    <div class="player-card fade-in">
+                        <div class="player-image">🛡️</div>
+                        <div class="player-name">Jules Koundé</div>
+                        <div class="player-position">Defensor</div>
+                        <div style="margin-top: 0.5rem; color: var(--barca-gold); font-size: 0.8rem;">78 partidos jugados</div>
+                    </div>
+                    
+                    <div class="player-card fade-in">
+                        <div class="player-image">⚽</div>
+                        <div class="player-name">Pedri</div>
+                        <div class="player-position">Centrocampista</div>
+                        <div style="margin-top: 0.5rem; color: var(--barca-gold); font-size: 0.8rem;">156 partidos - 28 goles</div>
+                    </div>
+                    
+                    <div class="player-card fade-in">
+                        <div class="player-image">🏃</div>
+                        <div class="player-name">Gavi</div>
+                        <div class="player-position">Centrocampista</div>
+                        <div style="margin-top: 0.5rem; color: var(--barca-gold); font-size: 0.8rem;">112 partidos - 15 goles</div>
+                    </div>
+                    
+                    <div class="player-card fade-in">
+                        <div class="player-image">⚡</div>
+                        <div class="player-name">Lamine Yamal</div>
+                        <div class="player-position">Extremo Derecho</div>
+                        <div style="margin-top: 0.5rem; color: var(--barca-gold); font-size: 0.8rem;">89 partidos - 23 goles</div>
+                    </div>
+                    
+                    <div class="player-card fade-in">
+                        <div class="player-image">🎯</div>
+                        <div class="player-name">Robert Lewandowski</div>
+                        <div class="player-position">Delantero</div>
+                        <div style="margin-top: 0.5rem; color: var(--barca-gold); font-size: 0.8rem;">134 partidos - 89 goles</div>
+                    </div>
+                    
+                    <div class="player-card fade-in">
+                        <div class="player-image">🌟</div>
+                        <div class="player-name">Raphinha</div>
+                        <div class="player-position">Extremo</div>
+                        <div style="margin-top: 0.5rem; color: var(--barca-gold); font-size: 0.8rem;">98 partidos - 34 goles</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Statistics Section -->
+            <section class="section section-bg-xavi" id="estadisticas">
+                <div class="legend-icon">🧠</div>
+                <h2 class="section-title fade-in">📊 Estadísticas Históricas</h2>
+                <div style="text-align: center; margin-bottom: 2rem; color: var(--gray-text); font-style: italic;">
+                    "Los números nunca mienten, la historia habla por sí sola" - Xavi Hernández
+                </div>
+                
+                <div class="feature-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                    <div class="feature-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 15px; border: 1px solid rgba(244, 196, 48, 0.2);">
+                        <h4 style="color: var(--barca-gold); margin-bottom: 1rem; font-size: 1.3rem;">🏆 Títulos Oficiales</h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 2rem; color: var(--barca-gold); font-weight: bold;">27</div>
+                                <div style="color: var(--gray-text);">La Liga</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 2rem; color: var(--barca-gold); font-weight: bold;">31</div>
+                                <div style="color: var(--gray-text);">Copa del Rey</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 2rem; color: var(--barca-gold); font-weight: bold;">5</div>
+                                <div style="color: var(--gray-text);">Champions League</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 2rem; color: var(--barca-gold); font-weight: bold;">14</div>
+                                <div style="color: var(--gray-text);">Supercopa España</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 15px; border: 1px solid rgba(244, 196, 48, 0.2);">
+                        <h4 style="color: var(--barca-gold); margin-bottom: 1rem; font-size: 1.3rem;">⚽ Estadísticas de Partidos</h4>
+                        <div style="margin-bottom: 1rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Total Partidos:</span>
+                                <span style="color: var(--barca-gold); font-weight: bold;">4,234</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Victorias:</span>
+                                <span style="color: var(--barca-gold); font-weight: bold;">2,678 (63.2%)</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Empates:</span>
+                                <span style="color: var(--gray-text);">789 (18.6%)</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>Derrotas:</span>
+                                <span style="color: var(--gray-text);">767 (18.1%)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 15px; border: 1px solid rgba(244, 196, 48, 0.2);">
+                        <h4 style="color: var(--barca-gold); margin-bottom: 1rem; font-size: 1.3rem;">🥅 Máximos Goleadores</h4>
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; padding: 0.3rem 0;">
+                                <span>1. Lionel Messi</span>
+                                <span style="color: var(--barca-gold); font-weight: bold;">672 goles</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; padding: 0.3rem 0;">
+                                <span>2. César Rodríguez</span>
+                                <span style="color: var(--barca-gold); font-weight: bold;">232 goles</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; padding: 0.3rem 0;">
+                                <span>3. Luis Suárez</span>
+                                <span style="color: var(--barca-gold); font-weight: bold;">198 goles</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; padding: 0.3rem 0;">
+                                <span>4. László Kubala</span>
+                                <span style="color: var(--barca-gold); font-weight: bold;">194 goles</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 0.3rem 0;">
+                                <span>5. Samuel Eto'o</span>
+                                <span style="color: var(--barca-gold); font-weight: bold;">130 goles</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- El Clasico Record -->
+                <div class="section section-bg-puyol" style="background: rgba(165, 0, 68, 0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; border: 2px solid var(--barca-red); margin-top: 3rem; position: relative; overflow: hidden;">
+                    <div class="legend-icon" style="background: var(--barca-red);">🛡️</div>
+                    <h3 style="text-align: center; color: var(--barca-gold); margin-bottom: 1rem; font-size: 1.8rem;">⚔️ El Clásico - FCB vs Real Madrid</h3>
+                    <div style="text-align: center; margin-bottom: 2rem; color: var(--gray-text); font-style: italic;">
+                        "Con el corazón, con el alma, siempre dándolo todo" - Carles Puyol
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+                        <div>
+                            <div style="font-size: 3rem; color: var(--barca-gold); font-weight: bold;">254</div>
+                            <div style="color: var(--gray-text);">Partidos Totales</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 3rem; color: var(--barca-gold); font-weight: bold;">104</div>
+                            <div style="color: var(--gray-text);">Victorias Barcelona</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 3rem; color: var(--gray-text); font-weight: bold;">52</div>
+                            <div style="color: var(--gray-text);">Empates</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 3rem; color: var(--gray-text); font-weight: bold;">98</div>
+                            <div style="color: var(--gray-text);">Victorias Madrid</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1.5rem; text-align: center; color: var(--barca-gold); font-weight: bold;">
+                        🏆 Último resultado: FCB 4-1 RMA (15 Feb 2025)
+                    </div>
+                </div>
+            </section>
+
+            <!-- Multimedia Section -->
+            <section class="section section-bg-guardiola" id="multimedia">
+                <div class="legend-icon">🎬</div>
+                <h2 class="section-title fade-in">📸 Galería Multimedia</h2>
+                <div style="text-align: center; margin-bottom: 2rem; color: var(--gray-text); font-style: italic;">
+                    "El fútbol es arte, es pasión, es vida" - Pep Guardiola
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                    
+                    <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 1.5rem; border: 1px solid rgba(244, 196, 48, 0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='var(--barca-gold)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(244, 196, 48, 0.2)'">
+                        <div style="width: 100%; height: 200px; background: linear-gradient(45deg, var(--barca-blue), var(--barca-red)); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; margin-bottom: 1rem;">🏆</div>
+                        <h4 style="color: var(--barca-gold); margin-bottom: 0.5rem;">Triplete 2009</h4>
+                        <p style="color: var(--gray-text); font-size: 0.9rem;">La temporada perfecta bajo Pep Guardiola con el mejor Barcelona de la historia.</p>
+                        <button style="background: var(--barca-red); color: white; border: none; padding: 0.5rem 1rem; border-radius: 20px; margin-top: 1rem; cursor: pointer;">Ver Galería</button>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 1.5rem; border: 1px solid rgba(244, 196, 48, 0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='var(--barca-gold)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(244, 196, 48, 0.2)'">
+                        <div style="width: 100%; height: 200px; background: linear-gradient(45deg, var(--barca-blue), var(--barca-red)); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; margin-bottom: 1rem;">⚽</div>
+                        <h4 style="color: var(--barca-gold); margin-bottom: 0.5rem;">Goles Históricos</h4>
+                        <p style="color: var(--gray-text); font-size: 0.9rem;">Los mejores goles en la historia del club desde 1899 hasta la actualidad.</p>
+                        <button style="background: var(--barca-red); color: white; border: none; padding: 0.5rem 1rem; border-radius: 20px; margin-top: 1rem; cursor: pointer;">Ver Videos</button>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 1.5rem; border: 1px solid rgba(244, 196, 48, 0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='var(--barca-gold)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(244, 196, 48, 0.2)'">
+                        <div style="width: 100%; height: 200px; background: linear-gradient(45deg, var(--barca-blue), var(--barca-red)); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; margin-bottom: 1rem;">🏟️</div>
+                        <h4 style="color: var(--barca-gold); margin-bottom: 0.5rem;">Camp Nou</h4>
+                        <p style="color: var(--gray-text); font-size: 0.9rem;">Recorrido virtual por el estadio más emblemático del fútbol mundial.</p>
+                        <button style="background: var(--barca-red); color: white; border: none; padding: 0.5rem 1rem; border-radius: 20px; margin-top: 1rem; cursor: pointer;">Tour Virtual</button>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 1.5rem; border: 1px solid rgba(244, 196, 48, 0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='var(--barca-gold)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(244, 196, 48, 0.2)'">
+                        <div style="width: 100%; height: 200px; background: linear-gradient(45deg, var(--barca-blue), var(--barca-red)); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; margin-bottom: 1rem;">👑</div>
+                        <h4 style="color: var(--barca-gold); margin-bottom: 0.5rem;">Leyendas</h4>
+                        <p style="color: var(--gray-text); font-size: 0.9rem;">Los jugadores que han marcado la historia del FC Barcelona.</p>
+                        <button style="background: var(--barca-red); color: white; border: none; padding: 0.5rem 1rem; border-radius: 20px; margin-top: 1rem; cursor: pointer;">Ver Leyendas</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Download Section -->
+            <section class="section section-bg-camp-nou">
+                <div class="legend-icon">🏟️</div>
+                <h2 class="section-title fade-in">📥 Descargas Disponibles</h2>
+                <div style="text-align: center; margin-bottom: 2rem; color: var(--gray-text); font-style: italic;">
+                    "Més que un club - Más que un estadio, un templo del fútbol"
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                    
+                    <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 2rem; border: 1px solid rgba(244, 196, 48, 0.2); text-align: center;">
+                        <i class="fas fa-file-pdf" style="font-size: 3rem; color: var(--barca-red); margin-bottom: 1rem;"></i>
+                        <h4 style="color: var(--barca-gold); margin-bottom: 1rem;">Estadísticas Temporada 2024-25</h4>
+                        <p style="color: var(--gray-text); font-size: 0.9rem; margin-bottom: 1.5rem;">Informe completo con todos los datos de la temporada actual en formato PDF.</p>
+                        <button style="background: var(--barca-red); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 25px; cursor: pointer; font-weight: bold; transition: all 0.3s ease;" onmouseover="this.style.background='var(--barca-blue)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--barca-red)'; this.style.transform='translateY(0)'">
+                            <i class="fas fa-download"></i> Descargar PDF
+                        </button>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 2rem; border: 1px solid rgba(244, 196, 48, 0.2); text-align: center;">
+                        <i class="fas fa-file-csv" style="font-size: 3rem; color: var(--barca-gold); margin-bottom: 1rem;"></i>
+                        <h4 style="color: var(--barca-gold); margin-bottom: 1rem;">Base de Datos de Partidos</h4>
+                        <p style="color: var(--gray-text); font-size: 0.9rem; margin-bottom: 1.5rem;">Todos los partidos desde 1899 en formato CSV para análisis estadístico.</p>
+                        <button style="background: var(--barca-red); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 25px; cursor: pointer; font-weight: bold; transition: all 0.3s ease;" onmouseover="this.style.background='var(--barca-blue)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--barca-red)'; this.style.transform='translateY(0)'">
+                            <i class="fas fa-download"></i> Descargar CSV
+                        </button>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 2rem; border: 1px solid rgba(244, 196, 48, 0.2); text-align: center;">
+                        <i class="fas fa-calendar-alt" style="font-size: 3rem; color: var(--barca-blue); margin-bottom: 1rem;"></i>
+                        <h4 style="color: var(--barca-gold); margin-bottom: 1rem;">Calendario de Partidos</h4>
+                        <p style="color: var(--gray-text); font-size: 0.9rem; margin-bottom: 1.5rem;">Próximos partidos para importar a tu calendario personal.</p>
+                        <button style="background: var(--barca-red); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 25px; cursor: pointer; font-weight: bold; transition: all 0.3s ease;" onmouseover="this.style.background='var(--barca-blue)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--barca-red)'; this.style.transform='translateY(0)'">
+                            <i class="fas fa-download"></i> Descargar .ics
+                        </button>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 2rem; border: 1px solid rgba(244, 196, 48, 0.2); text-align: center;">
+                        <i class="fas fa-images" style="font-size: 3rem; color: var(--barca-gold); margin-bottom: 1rem;"></i>
+                        <h4 style="color: var(--barca-gold); margin-bottom: 1rem;">Wallpapers HD</h4>
+                        <p style="color: var(--gray-text); font-size: 0.9rem; margin-bottom: 1.5rem;">Fondos de pantalla oficiales en alta resolución para todos los dispositivos.</p>
+                        <button style="background: var(--barca-red); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 25px; cursor: pointer; font-weight: bold; transition: all 0.3s ease;" onmouseover="this.style.background='var(--barca-blue)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--barca-red)'; this.style.transform='translateY(0)'">
+                            <i class="fas fa-download"></i> Descargar ZIP
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: left; margin-bottom: 2rem;">
+                <div>
+                    <h4 style="color: var(--barca-gold); margin-bottom: 1rem;">Historia</h4>
+                    <ul style="list-style: none; color: var(--gray-text);">
+                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--gray-text); text-decoration: none;">Fundación 1899</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--gray-text); text-decoration: none;">Grandes Eras</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--gray-text); text-decoration: none;">Títulos y Logros</a></li>
+                        <li><a href="#" style="color: var(--gray-text); text-decoration: none;">Leyendas</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: var(--barca-gold); margin-bottom: 1rem;">Estadísticas</h4>
+                    <ul style="list-style: none; color: var(--gray-text);">
+                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--gray-text); text-decoration: none;">Todos los Partidos</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--gray-text); text-decoration: none;">Goleadores</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--gray-text); text-decoration: none;">Récords</a></li>
+                        <li><a href="#" style="color: var(--gray-text); text-decoration: none;">El Clásico</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: var(--barca-gold); margin-bottom: 1rem;">Recursos</h4>
+                    <ul style="list-style: none; color: var(--gray-text);">
+                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--gray-text); text-decoration: none;">Descargas</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--gray-text); text-decoration: none;">API de Datos</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--gray-text); text-decoration: none;">Galería Multimedia</a></li>
+                        <li><a href="#" style="color: var(--gray-text); text-decoration: none;">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+            </div>
+            
+            <div style="border-top: 1px solid var(--gray-text); padding-top: 2rem; margin-top: 2rem;">
+                <p style="color: var(--gray-text); margin-bottom: 1rem;">
+                    © 2025 FC Barcelona Historia - Sitio web no oficial dedicado a la historia del club
+                </p>
+                <p style="color: var(--gray-text); font-size: 0.9rem;">
+                    "Més que un club" - Todos los datos estadísticos recopilados de fuentes oficiales y archivos históricos
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling para enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animaciones de entrada
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observar todos los elementos con clase fade-in
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Funcionalidad de filtros
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const matchCards = document.querySelectorAll('.match-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remover clase activa de todos los botones
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Agregar clase activa al botón clickeado
+                button.classList.add('active');
+
+                const filter = button.getAttribute('data-filter');
+                
+                // Aplicar filtro (simulado - en una implementación real filtrarías los datos)
+                matchCards.forEach(card => {
+                    if (filter === 'todos') {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeIn 0.5s ease';
+                    } else {
+                        // Aquí implementarías la lógica real de filtrado
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeIn 0.5s ease';
+                    }
+                });
+            });
+        });
+
+        // Función de búsqueda
+        const searchInput = document.querySelector('.search-input');
+        const searchBtn = document.querySelector('.search-btn');
+
+        searchBtn.addEventListener('click', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            if (searchTerm) {
+                // Simular búsqueda
+                searchBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Buscando...';
+                
+                setTimeout(() => {
+                    searchBtn.innerHTML = '<i class="fas fa-search"></i> Buscar';
+                    // Aquí implementarías la lógica real de búsqueda
+                    console.log('Buscando:', searchTerm);
+                }, 1000);
+            }
+        });
+
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchBtn.click();
+            }
+        });
+
+        // Animaciones adicionales para las tarjetas
+        document.querySelectorAll('.match-card, .player-card, .feature-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+                card.style.boxShadow = '0 25px 50px rgba(244, 196, 48, 0.3)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+                card.style.boxShadow = 'none';
+            });
+        });
+
+        // Efecto parallax suave para el hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+
+            // Cambiar la opacidad del header basada en el scroll
+            const header = document.querySelector('.header');
+            if (scrolled > 100) {
+                header.style.background = 'rgba(0, 77, 159, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 77, 159, 0.3)';
+            } else {
+                header.style.background = 'rgba(0, 77, 159, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Contador animado para las estadísticas
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace(/[^\d]/g, ''));
+                if (target && target < 10000) { // Solo animar números pequeños
+                    let current = 0;
+                    const increment = target / 50;
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            counter.textContent = counter.textContent.replace(/\d+/, target);
+                            clearInterval(timer);
+                        } else {
+                            counter.textContent = counter.textContent.replace(/\d+/, Math.floor(current));
+                        }
+                    }, 30);
+                }
+            });
+        }
+
+        // Ejecutar contador cuando la sección de estadísticas sea visible
+        const statsSection = document.querySelector('#estadisticas');
+        if (statsSection) {
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            statsObserver.observe(statsSection);
+        }
+
+        // Funcionalidad de los botones de descarga
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('Descargar')) {
+                button.addEventListener('click', (e) => {
+                    const originalText = button.innerHTML;
+                    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparando...';
+                    button.disabled = true;
+                    
+                    setTimeout(() => {
+                        button.innerHTML = '<i class="fas fa-check"></i> ¡Descargado!';
+                        setTimeout(() => {
+                            button.innerHTML = originalText;
+                            button.disabled = false;
+                        }, 2000);
+                    }, 2000);
+                });
+            }
+        });
+
+        // Easter egg: Konami Code para mostrar mensaje especial
+        let konamiCode = [];
+        const sequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+        
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.code);
+            if (konamiCode.length > sequence.length) {
+                konamiCode.shift();
+            }
+            
+            if (JSON.stringify(konamiCode) === JSON.stringify(sequence)) {
+                // Mostrar mensaje especial de Barcelona
+                const message = document.createElement('div');
+                message.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: linear-gradient(45deg, var(--barca-blue), var(--barca-red));
+                    color: white;
+                    padding: 2rem;
+                    border-radius: 20px;
+                    text-align: center;
+                    z-index: 10000;
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+                    animation: fadeIn 0.5s ease;
+                `;
+                message.innerHTML = `
+                    <h3 style="margin-bottom: 1rem;">🏆 ¡Més que un club! 🏆</h3>
+                    <p>Has desbloqueado el mensaje secreto del Barça</p>
+                    <p style="font-size: 0.9em; margin-top: 1rem; opacity: 0.8;">Visca el Barça! 🔵🔴</p>
+                `;
+                
+                document.body.appendChild(message);
+                
+                setTimeout(() => {
+                    message.style.animation = 'fadeOut 0.5s ease';
+                    setTimeout(() => {
+                        document.body.removeChild(message);
+                    }, 500);
+                }, 3000);
+                
+                konamiCode = [];
+            }
+        });
+
+        // Añadir keyframes para las animaciones
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translate(-50%, -60%); }
+                to { opacity: 1; transform: translate(-50%, -50%); }
+            }
+            
+            @keyframes fadeOut {
+                from { opacity: 1; transform: translate(-50%, -50%); }
+                to { opacity: 0; transform: translate(-50%, -40%); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Mensaje de bienvenida inicial
+        setTimeout(() => {
+            console.log(`
+🔵🔴 ¡Bienvenido a la Historia del FC Barcelona! 🔵🔴
+════════════════════════════════════════════════════
+  
+📊 Datos disponibles: 4,200+ partidos desde 1899
+🏆 95 títulos oficiales documentados  
+⚽ 672 goles de Messi registrados
+🏟️ Camp Nou: 99,354 espectadores
+                
+¡Explora más de 125 años de historia culé!
+Més que un club! 💙❤️
+            `);
+        }, 2000);
+    </script>
+</body>
+</html>
